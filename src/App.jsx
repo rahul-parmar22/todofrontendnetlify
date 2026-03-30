@@ -5,7 +5,7 @@ import Login from "./Pages/Login.jsx";
 import Register from "./Pages/Register.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import Layout from "./Pages/Layout.jsx";
-import NotFound from "./Pages/notFound.jsx";
+import NotFound from "./Pages/NotFound.jsx";
 import AdminDashboard from "./Pages/admin/AdminDashboard.jsx";
 import ProtectedRoutes from "./Components/ProtectedRoutes.jsx";
 import RoleContext from '../src/contexts/RoleContext.jsx'
