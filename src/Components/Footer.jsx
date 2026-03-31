@@ -6,7 +6,7 @@ const Footer = () => {
   return (
    <div className="bg-gray-800 text-white px-3 py-2 text-sm flex justify-between items-center w-full">
 
-      <img src="../public/footerTodoImg.png" alt="" className="h-11 rounded-full " />
+      <img src="footerTodoImg.png" alt="" className="h-11 rounded-full " />
       <div className="flex text-xs gap-2">
         <Link to="/">
           <button className="cursor-pointer">HOME</button>
