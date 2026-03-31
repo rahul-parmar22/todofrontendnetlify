@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import instance from "../axios.js";
 import debounce from "lodash/debounce"
 
@@ -36,15 +36,40 @@ return params.toString();
     }
   };
 
-const handleSearch = debounce((value)=>{
-  setSearch(value); 
-},500); 
+let debounceRef = useRef(null);
 
-useEffect(()=>{
-     if(search.trim() !== ""){
-      fetchTodo(); 
-     }
-},[search])
+let debounceSearch = ()=>{
+                       if(debounceRef.current){ //first letter type karo etale aa condition false hoy karan ke starting ma current ma kai no hoy to nicheni chale condition 
+                       clearTimeout(debounceRef.current)
+                       }
+
+                   debounceRef.current = setTimeout(() => {
+                        fetchTodo()
+                       }, 500); 
+} 
+
+
+
+useEffect(() => {
+  // case 1: actual empty string (user cleared input)
+  if (search === "") {
+    setPage(1);
+    fetchTodo();
+    return;
+  }
+
+  // case 2: only spaces → ignore
+  if (search.trim() === "") {
+    return;
+  }
+
+  // case 3: valid search
+  setPage(1);
+  debounceSearch();
+}, [search]);
+
+
+
 
   useEffect(() => {
     fetchTodo();
