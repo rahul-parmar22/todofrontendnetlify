@@ -165,7 +165,7 @@ useEffect(() => {
  <input
   type="text"
   value={search}
-  onChange={(e)=>handleSearch(e.target.value)}
+  onChange={(e)=>setSearch(e.target.value)}
    placeholder="Search Todoo.."
    className="bg-gray-200 border border-gray-500 mt-1 " />
 
